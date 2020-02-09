@@ -100,12 +100,10 @@ E ArrayList1<E>::remove(int index){
         //throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
 
-
     E oldValue = (E) array[index];
-
     int numMoved = len - index - 1;
-    if (numMoved > 0){
-        memcpy(this->array,this->array(index+1), sizeof(E) * numMoved);
+    for (int i = 0; i < numMoved; ++i) {
+       array[index+i] =  array[index + i + 1];
     }
 
     return oldValue;
