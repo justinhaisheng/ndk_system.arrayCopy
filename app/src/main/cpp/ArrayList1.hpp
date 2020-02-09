@@ -12,7 +12,7 @@
 template <class E>
 class ArrayList1 {
 private:
-    E* array;//当前的数组指针
+    E* array =NULL;//当前的数组指针
     int len = 0;
     int index = 0;
     void ensureCapacityInternal(int capacity);
