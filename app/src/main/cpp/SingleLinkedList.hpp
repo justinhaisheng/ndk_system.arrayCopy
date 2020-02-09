@@ -7,26 +7,30 @@
 
 #include <assert.h>
 
-template <class E>
-class Node{
-private:
-    E value;
-public:
-    Node* next;
-    Node(E value){
-        this->value = value;
-        this->next = NULL;
-    }
-    ~Node(){
-        if(this->next){
-            free(next);
+namespace singleLinkedList{
+    template <class E>
+    class Node{
+    private:
+        E value;
+    public:
+        Node* next;
+        Node(E value){
+            this->value = value;
             this->next = NULL;
         }
-    }
-    E getValue(){
-        return this->value;
-    }
-};
+        ~Node(){
+            if(this->next){
+                free(next);
+                this->next = NULL;
+            }
+        }
+        E getValue(){
+            return this->value;
+        }
+    };
+}
+
+using namespace singleLinkedList;
 
 template <class E>
 class SingleLinkedList{

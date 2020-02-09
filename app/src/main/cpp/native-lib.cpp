@@ -2,6 +2,7 @@
 #include <string>
 #include "ArrayList1.hpp"
 #include "SingleLinkedList.hpp"
+#include "LinkedList.hpp"
 #include "AndroidLog.h"
 
 extern "C" JNIEXPORT jstring JNICALL
@@ -46,6 +47,24 @@ Java_com_aispeech_array_MainActivity_stringFromJNI(
         LOGD("singleLinkedList remove (%d)",d);
     }
     LOGD("singleLinkedList re0 = %d re5 = %d",re0,re5);
+
+
+    LinkedList<int > linkedList;
+    linkedList.push(1);
+    linkedList.push(2);
+    //linkedList.push(3);
+   // linkedList.push(4);
+   // linkedList.push(5);
+
+    for (int i = 0; i < linkedList.size(); ++i) {
+        int d = linkedList.get(i);
+        LOGD("linkedList push (%d)",d);
+    }
+//    linkedList.insert(3,33);
+//    for (int i = 0; i < linkedList.size(); ++i) {
+//        int d = linkedList.get(i);
+//        LOGD("linkedList insert (%d)",d);
+//    }
 
     return env->NewStringUTF(hello.c_str());
 }

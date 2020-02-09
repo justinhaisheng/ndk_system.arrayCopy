@@ -20,6 +20,7 @@ add_library( # Sets the name of the library.
              native-lib.cpp
              ArrayList1.hpp
              SingleLinkedList.hpp
+             LinkedList.hpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a
