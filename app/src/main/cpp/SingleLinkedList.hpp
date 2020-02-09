@@ -32,6 +32,7 @@ template <class E>
 class SingleLinkedList{
 private:
     Node<E>* head = NULL;
+    Node<E>* last = NULL;//指向最后一个节点
     int len = 0;
     Node<E>* getLastNode();
     Node<E>* getIndexNode(int index);
@@ -110,10 +111,12 @@ void SingleLinkedList<E>::push(E e) {
     Node<E>* node = new Node<E>(e);
     if(head){
         //先找出最后一个节点
-        Node<E>* lastNode = getLastNode();
-        lastNode->next = node;
+        //Node<E>* lastNode = getLastNode();
+        this->last->next = node;
+        this->last = node;
     } else{ // 如果头指针为null
         this ->head = node;
+        this ->last = node;
     }
     this->len ++ ;
 }
