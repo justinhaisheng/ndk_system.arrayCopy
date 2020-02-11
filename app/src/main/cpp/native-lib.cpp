@@ -52,9 +52,9 @@ Java_com_aispeech_array_MainActivity_stringFromJNI(
     LinkedList<int > linkedList;
     linkedList.push(1);
     linkedList.push(2);
-    //linkedList.push(3);
-   // linkedList.push(4);
-   // linkedList.push(5);
+    linkedList.push(3);
+    linkedList.push(4);
+    linkedList.push(5);
 
     for (int i = 0; i < linkedList.size(); ++i) {
         int d = linkedList.get(i);
