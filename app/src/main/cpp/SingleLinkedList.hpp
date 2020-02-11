@@ -19,10 +19,13 @@ namespace singleLinkedList{
             this->next = NULL;
         }
         ~Node(){
-            if(this->next){
-                free(next);
-                this->next = NULL;
+            Node* n = next;
+            while (n){
+                Node* temp = n;
+                n = n->next;
+                delete(temp);
             }
+            next = NULL;
         }
         E getValue(){
             return this->value;
