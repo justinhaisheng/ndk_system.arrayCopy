@@ -4,7 +4,7 @@
 #include "SingleLinkedList.hpp"
 #include "LinkedList.hpp"
 #include "AndroidLog.h"
-
+#include "ArrayStack.hpp"
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_aispeech_array_MainActivity_stringFromJNI(
         JNIEnv* env,
