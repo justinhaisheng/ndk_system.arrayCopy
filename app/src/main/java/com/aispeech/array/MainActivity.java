@@ -2,6 +2,7 @@ package com.aispeech.array;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
+
+        int number = 0x0001 & 1234567;
+        Log.d("MainActivity","number:"+number);
+
     }
 
     /**

@@ -5,6 +5,7 @@
 #include "LinkedList.hpp"
 #include "AndroidLog.h"
 #include "ArrayStack.hpp"
+#include "ArrayQueue.hpp"
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_aispeech_array_MainActivity_stringFromJNI(
         JNIEnv* env,
@@ -65,6 +66,7 @@ Java_com_aispeech_array_MainActivity_stringFromJNI(
 //        int d = linkedList.get(i);
 //        LOGD("linkedList insert (%d)",d);
 //    }
+
 
     return env->NewStringUTF(hello.c_str());
 }

@@ -22,6 +22,7 @@ add_library( # Sets the name of the library.
              SingleLinkedList.hpp
              LinkedList.hpp
              ArrayStack.hpp
+             ArrayQueue.hpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a
