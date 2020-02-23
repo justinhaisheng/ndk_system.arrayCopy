@@ -54,7 +54,7 @@ void LinkedList<E>::insert(int index, E e) {
 }
 
 template<class E>
-void LinkedList::linkFirst(Node_<E> *pNode, E e) {
+void LinkedList<E>::linkFirst(Node_<E> *pNode, E e) {
     Node_<E>* prev = pNode->prev;
     Node_<E>* node = new Node_<E>(e,prev,pNode);
     pNode->prev = node;
@@ -129,9 +129,9 @@ E LinkedList<E>::get(int index) {
 
 template<class E>
 LinkedList<E>::~LinkedList() {
-    Node_* node = head;
+    Node_<E>* node = head;
     while (node){
-        Node_* temp = node;
+        Node_<E>* temp = node;
         node = node->next;
         delete(temp);
     }

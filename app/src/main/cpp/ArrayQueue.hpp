@@ -100,7 +100,7 @@ void ArrayQueue<E>::copyElement(E *sourceArray, int SourcePos, E *targetArray, i
         targetArray[targetPos + i] = sourceArray[SourcePos + i];
     }
 }
-
-ArrayQueue::~ArrayQueue() {
+template<class E>
+ArrayQueue<E>::~ArrayQueue() {
     free(array);
 }
