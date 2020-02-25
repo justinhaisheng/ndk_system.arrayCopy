@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // Example of a call to a native method
         TextView tv = findViewById(R.id.sample_text);
-//        tv.setText(stringFromJNI());
+        tv.setText(stringFromJNI());
 
         int number = 0x0001 & 1234567;
         Log.d("MainActivity","number:"+number);
