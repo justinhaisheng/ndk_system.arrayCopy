@@ -126,13 +126,17 @@ Java_com_aispeech_array_MainActivity_stringFromJNI(
     TreeNode<char>* rootD = new TreeNode<char>('D');
     TreeNode<char>* rootE = new TreeNode<char>('E');
     TreeNode<char>* rootF =new  TreeNode<char>('F');
+    TreeNode<char>* rootG =new  TreeNode<char>('G');
+    TreeNode<char>* rootH =new  TreeNode<char>('H');
 
     root->left = rootB;
-    root->right = rootC;
-    rootB->left = rootD;
-    rootB->right = rootE;
-    rootC->right = rootF;
-
+    root->right = rootF;
+    //rootB->left = rootD;
+    rootB->right = rootC;
+    rootC->left = rootD;
+    rootC->right = rootE;
+    rootF->right = rootG;
+    rootG->left = rootH;
     preOrderTraverse(root);
     minOrderTraverse(root);
     backOrderTraverse(root);
