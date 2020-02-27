@@ -9,6 +9,8 @@
 #include "AndroidLog.h"
 #include "TreeNode.hpp"
 
+#include "cmath"
+
 using  namespace std;
 //前序遍历
 void preOrderTraverse(TreeNode<char>* root){
@@ -56,6 +58,28 @@ void levelOrderTraverse(TreeNode<char>* root){
             q.push(fr->right);
         }
     }
+}
+
+
+
+
+int getDepthTree(TreeNode<char> *pNode){
+    if (!pNode){
+        return 0;
+    }
+    int leftCount = getDepthTree(pNode->left);
+    int rightCount = getDepthTree(pNode->right);
+    return max(leftCount,rightCount) + 1;
+}
+
+//判断是否是平衡二叉树 空树是 、每颗树的左右子树的高度不会超过一
+bool isBalanceTree(TreeNode<char> *pNode) {
+    if (!pNode){
+        return true;
+    }
+    int left = getDepthTree(pNode->left);
+    int  right = getDepthTree(pNode->right);
+    return abs(left - right) <=1 && isBalanceTree(pNode->left) && isBalanceTree(pNode->right);
 }
 
 extern "C" JNIEXPORT jstring JNICALL
@@ -141,5 +165,12 @@ Java_com_aispeech_array_MainActivity_stringFromJNI(
     minOrderTraverse(root);
     backOrderTraverse(root);
     levelOrderTraverse(root);
+
+
+    int count = getDepthTree(root);
+    bool  ba = isBalanceTree(root);
+    
+
+    LOGE("二叉树 count%d %d",count,ba);
     return env->NewStringUTF(hello.c_str());
 }
