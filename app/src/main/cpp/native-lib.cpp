@@ -87,16 +87,33 @@ void serialized(TreeNode<char> *pNode,char s[],int &index){
         s[index]= '#';
         LOGI("serialized # index=%d",index);
         index = index+1;
-        //s++;
         return;
     }
     s[index] = pNode->data;
     LOGI("serialized %c index=%d",pNode->data,index);
     index = index+1;
-    //s++;
     serialized(pNode->left,s,index);
     serialized(pNode->right,s,index);
 }
+
+TreeNode<char>* reSerialized(char s[],int &index){
+    if (s[index] == '#'){
+        index = index+1;
+        return NULL;
+    }
+    TreeNode<char>* root = new TreeNode<char>(s[index]);
+    index = index+1;
+    //LOGI("reSerialized %c index=%d",pNode->data,index);
+    index = index+1;
+    reSerialized(s,index);
+    reSerialized(s,index);
+    return root;
+}
+
+
+
+
+
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_aispeech_array_MainActivity_stringFromJNI(
