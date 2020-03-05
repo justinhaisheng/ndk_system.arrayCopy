@@ -8,6 +8,7 @@
 #include "ArrayQueue.hpp"
 #include "AndroidLog.h"
 #include "TreeNode.hpp"
+#include "PriorityQueue.hpp"
 
 #include "cmath"
 
@@ -224,6 +225,13 @@ Java_com_aispeech_array_MainActivity_stringFromJNI(
     //preOrderTraverse(serializeA);
     LOGE("serialize= %s",serialize);
     free(serialize);
+
+    int len = 10;
+    PriorityQueue<int> pq(len);
+    for (int i = 0; i < len; ++i) {
+        pq.push(rand()%100);
+    }
+
 
     return env->NewStringUTF(hello.c_str());
 }
