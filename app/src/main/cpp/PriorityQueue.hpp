@@ -19,12 +19,27 @@ public:
     E* Array = NULL;
 private:
     void shifUp(int pos){
-        LOGD("pos = %d",pos)
+        LOGD("shifUp() pos = %d",pos)
         if (pos>0){
             LOGI("Array[%d] = %d ,Array[%d] = %d",pos,Array[pos],(pos-1)/2,Array[(pos-1)/2]);
             if (Array[pos] > Array[(pos-1)/2]){
                 swap(Array[pos],Array[(pos-1)/2]);
                 shifUp((pos-1)/2);
+            }
+        }
+    }
+
+    void shifDown(int pos){
+        LOGD("shifDown() pos = %d",pos)
+        if (pos < (index)/2){
+            int max = 2*pos + 1;//左
+            if (max+1 <= index && Array[max+1] > Array[max]){
+                max = max + 1;//右孩子是最大值
+            }
+            if(Array[max] > Array[pos]){
+                swap(Array[max],Array[pos]);
+                pos = max;
+                shifDown(pos);
             }
         }
     }
@@ -39,7 +54,7 @@ public:
     }
 
     bool isEmpty(){
-        return count == 0;
+        return index < 0;
     }
 
     void push(E e){
@@ -51,6 +66,14 @@ public:
             LOGE("PriorityQueue= %d",Array[i]);
         }
         LOGD("---");
+    }
+
+    E pop(){
+        E e = Array[0];
+        Array[0] = Array[index];
+        shifDown(0);
+        index-- ;
+        return e;
     }
 
 };

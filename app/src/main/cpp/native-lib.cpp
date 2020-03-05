@@ -232,6 +232,9 @@ Java_com_aispeech_array_MainActivity_stringFromJNI(
         pq.push(rand()%100);
     }
 
+    while (!pq.isEmpty()){
+        LOGE("pop= %d",pq.pop());
+    }
 
     return env->NewStringUTF(hello.c_str());
 }
