@@ -14,7 +14,7 @@ using namespace std;
 template<class E>
 class PriorityQueue{
 public:
-    int index = 0;
+    int index = -1;
     int count = 0;
     E* Array = NULL;
 private:
@@ -31,7 +31,7 @@ private:
 
     void shifDown(int pos){
         LOGD("shifDown() pos = %d",pos)
-        if (pos < (index)/2){
+        if (pos*2+1 <=index){
             int max = 2*pos + 1;//左
             if (max+1 <= index && Array[max+1] > Array[max]){
                 max = max + 1;//右孩子是最大值
@@ -45,7 +45,6 @@ private:
     }
 public:
     PriorityQueue(int count){
-        index = 0;
         this->count = count;
         Array = new E[count];
     }
@@ -59,10 +58,10 @@ public:
 
     void push(E e){
         LOGI("push= %d",e);
+        index++;
         Array[index] = e;
         shifUp(index);
-        index++;
-        for (int i = 0; i < index; ++i) {
+        for (int i = 0; i < index+1; ++i) {
             LOGE("PriorityQueue= %d",Array[i]);
         }
         LOGD("---");
